@@ -1,0 +1,67 @@
+{
+    "models": [
+        {
+            "name": "sun",
+            "obj": "./models/sphere/sphere.obj"
+        },
+        {
+            "name": "lucy",
+            "obj": "./models/lucy/lucy.obj"
+        }
+    ],
+    "lights": [
+        {
+            "name": "ambient1",
+            "type": "ambient",
+            "color": "#FFFFFF",
+            "intensity": 0.5
+        },
+        {
+            "name": "point1",
+            "type": "point",
+            "color": "#FF6666", 
+            "intensity": 1.5
+        }
+    ],
+    "scenegraph": {
+        "name": "model_node",
+        "type": "model",
+        "content": "sun",
+        "transformation": {
+            "translation": [0, 0, 0],
+            "rotation": [0, 0, 0],
+            "scale": [1.3, 1.3, 1.3]
+        },
+        "children": [
+            {
+                "name": "lights_node",
+                "type": "node",
+                "children": [
+                    {
+                        "name": "ambientlight1",
+                        "type": "light",
+                        "content": "ambient1"
+                    },
+                    {
+                        "name": "pointlight1",
+                        "type": "light",
+                        "content": "point1",
+                        "transformation": {
+                            "translation": [0.0, 0.0, 0.0]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "lucy_node",
+                "type": "model",
+                "content": "lucy",
+                "transformation": {
+                    "translation": [7, 1, 1],
+                    "rotation": [0, 0, 0],
+                    "scale": [0.5, 0.5, 0.5]
+                }
+            }
+        ]
+    }
+}
